@@ -25,12 +25,25 @@ class BillServiceTests {
 		cafeOrder.add(CafeMenu.COFFEE);
 		cafeOrder.add(CafeMenu.CHEESE_SANDWITCH);
 		cafeOrder.add(CafeMenu.STEAK_SANDWITCH);
-		Bill bill = billService.getOrderBill(cafeOrder);
-		assertTrue( BigDecimal.valueOf( 0.65).compareTo(bill.getServiceCharge()) == 0);
+		BigDecimal serviceCharge = billService.getServiceCharge(cafeOrder);
+		assertTrue( BigDecimal.valueOf( 0.65).compareTo(serviceCharge) == 0);
 	}
+
 
 	@Test
 	public void getServiceChargeError(){
+
+		Throwable throwable = assertThrows(
+				IllegalArgumentException.class, () -> {
+					billService.getServiceCharge(null);
+				}
+		);
+
+		assertEquals("Purchases cannot be Empty to calculate Service Charge..", throwable.getMessage());
+	}
+
+	@Test
+	public void getOrderBillError(){
 
 		Throwable throwable = assertThrows(
 				IllegalArgumentException.class, () -> {

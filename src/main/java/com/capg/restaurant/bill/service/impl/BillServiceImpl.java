@@ -36,7 +36,10 @@ public class BillServiceImpl implements BillService {
         return bill;
     }
 
-     BigDecimal getServiceCharge(List<CafeMenu> purchases) {
+     public BigDecimal getServiceCharge(List<CafeMenu> purchases) {
+         if(CollectionUtils.isEmpty(purchases)){
+             throw new IllegalArgumentException("Purchases cannot be Empty to calculate Service Charge..");
+         }
         BigDecimal serviceChargeTotal = purchases.stream().map(p->
                 p.getPrice().multiply(p.getItemType().getServiceChargePercentage()))
                 .reduce(BigDecimal.ZERO, BigDecimal::add).setScale(2, RoundingMode.CEILING);
