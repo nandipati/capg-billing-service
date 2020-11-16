@@ -11,7 +11,7 @@ public class Bill {
 
     // List of Orders
     private List<CafeMenu> orders;
-    // Total Purchased Bill excluding Exluding Tax
+    // Total Purchased Bill excluding Excluding Tax
     private BigDecimal subTotal;
     // Tax amount which we are not using yet , is for place holder.
     private BigDecimal tax;

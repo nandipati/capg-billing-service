@@ -1,0 +1,11 @@
+management:
+  endpoint:
+    health:
+      group:
+        custom:
+          include: diskSpace,ping
+  security:
+    enabled: false
+security:
+  basic:
+    enabled: false

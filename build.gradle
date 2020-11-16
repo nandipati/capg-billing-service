@@ -18,6 +18,9 @@ ext {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	// Pojo Killer
 	implementation("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")

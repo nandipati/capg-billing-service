@@ -29,10 +29,9 @@ public class BillServiceImpl implements BillService {
 
         BigDecimal orderTotal = totalBill.add(serviceChargeTotal);
 
-        log.info("Service Charge Total -> {} , Total Bill -> {} , Total Bill including Service charge -> {}" , serviceChargeTotal,
-                totalBill , orderTotal);
-
         Bill bill = createBillValueObject(purchases, totalBill, serviceChargeTotal, orderTotal);
+
+        log.info("Order Bill attributes ->{}",bill.toString());
 
         return bill;
     }
